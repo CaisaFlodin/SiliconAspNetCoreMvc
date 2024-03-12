@@ -1,0 +1,85 @@
+#light-dark {
+    padding: 20px 0;
+    background-image: linear-gradient(to right, $black 0%, $black 50%, $white 50%, $white 100%);
+    position: relative;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h1 {
+            // padding: 50px 0 30px 0;
+            margin: 60px 0 40px 0;
+            color: $gray-900;
+
+            @include text-m;
+
+            @include lg {
+                @include h1;
+            }
+
+            .light-text {
+                color: $white;
+                padding-right: 30px;
+            }
+
+            .dark-text {
+                color: $black;
+                padding-left: 20px;
+            }
+        }
+
+        .img-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
+        .slider-line {
+            position: absolute;
+            inset: 0;
+            width: 0.2rem;
+            height: 100%;
+            background-color: $theme;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .slider-btn {
+            position: absolute;
+            width: 3px;
+            height: 100%;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%);
+            background-color: $theme;
+
+            &::before {
+                content: "";
+                width: 30px;
+                aspect-ratio: 1;
+                background-color: inherit;
+                position: absolute;
+                top: 60%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+            }
+
+            .fa-arrows-left-right {
+                position: absolute;
+                top: 60%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: $white;
+            }
+        }
+    }
+}

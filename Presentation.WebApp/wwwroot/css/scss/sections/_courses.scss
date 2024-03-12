@@ -1,0 +1,227 @@
+#courses {
+    padding: 50px 0;
+
+    .container {
+        nav {
+            margin-bottom: 1rem;
+
+            .arrows {
+                font-size: 0.7rem;
+                padding: 0 10px;
+
+                .fa-regular {
+                    font-weight: 700;
+                    color: $gray-600;
+                }
+            }
+
+            .menu-link {
+                color: $gray-600 !important;
+                @include text-s;
+                font-weight: 300 !important;
+
+                .fa-regular {
+                    margin-right: 5px;
+                }
+
+                &:nth-child(3) {
+                    color: $theme !important;
+                }
+
+                &:hover {
+                    cursor: pointer;
+
+                    &:nth-child(1) {
+                        color: $theme !important;
+                    }
+                }
+            }
+        }
+
+        .form-wrapper {
+            margin-bottom: 1rem;
+
+            h1 {
+                @include h4;
+            }
+
+            @include lg {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                h1 {
+                    @include h2;
+                }
+            }
+
+            @include xl {
+                h1 {
+                    @include h1;
+                }
+            }
+
+            form {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+
+                @include lg {
+                    justify-content: flex-end;
+                }
+
+                select {
+                    color: $gray-700;
+                }
+
+                input,
+                select {
+                    padding: 10px;
+                    margin-top: 10px;
+                }
+
+                input {
+                    width: 100%;
+                }
+
+                .search {
+                    position: relative;
+
+                    .fa-magnifying-glass {
+                        position: absolute;
+                        color: $gray-900;
+                        left: 90%;
+                        top: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+        }
+
+        .cards {
+            gap: 20px;
+            display: grid;
+
+            @include lg {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .card {
+                border: none;
+                border-radius: 8px 8px 0 0;
+                position: relative;
+                @include shadow-s;
+
+                &:hover {
+                    transform: scale(1.05);
+                    transition: all 0.15s ease-in-out;
+                    cursor: pointer;
+                }
+
+                .course-img {
+                    border-radius: 8px 8px 0 0;
+                    width: 100%;
+                    top: 0;
+                    left: 0;
+                }
+
+                .card-icon-wrapper {
+                    position: absolute;
+                    width: 100%;
+
+                    .course-badge {
+                        position: absolute;
+                        left: 12px;
+                        top: 12px;
+                    }
+
+                    .bookmark {
+                        height: 30px;
+                        width: 30px;
+                        top: 12px;
+                        right: 12px;
+                        position: absolute;
+                        background-color: white;
+                        border: none;
+                        padding: 5px;
+                        border-radius: 50%;
+
+                        i {
+                            font-size: 14px;
+                            color: $gray-800;
+                        }
+
+                        @include lg {
+                            &:hover {
+                                background-color: $theme;
+
+                                i {
+                                    color: $white;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .content {
+                    padding: 25px 25px 20px 25px;
+
+                    h2 {
+                        @include h6;
+
+                        @include lg {
+                            @include h6;
+                        }
+
+                        @include xl {
+                            @include h5;
+                        }
+                    }
+
+                    h3 {
+                        @include text-s;
+                    }
+
+                    span {
+                        @include text-lg;
+                        color: $theme;
+                        font-weight: 700;
+
+                        &.discount {
+                            color: $danger;
+                            margin-right: 0.5rem;
+                        }
+
+                        &.price {
+                            color: $gray-600;
+                            font-weight: 400;
+                            text-decoration: line-through;
+                        }
+                    }
+
+                    p {
+                        @include text-s;
+                        color: $gray-600;
+                    }
+
+                    .divider {
+                        display: flex;
+                        border-top: 1px solid $gray-300;
+                        margin-top: 10px;
+                        margin-bottom: 0;
+                        padding: 0;
+
+                        p {
+                            margin: 1.3rem 1.5rem 0 0;
+
+                            .fa-sharp,
+                            .fa-regular {
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
