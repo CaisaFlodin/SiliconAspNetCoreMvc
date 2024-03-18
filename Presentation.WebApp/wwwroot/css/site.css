@@ -1508,3 +1508,49 @@ footer .container .social-media {
   gap: 20px;
   margin-bottom: 30px;
 }
+
+#signin {
+  height: 100%;
+}
+#signin .container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 992px) {
+  #signin .container {
+    width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  #signin .container {
+    width: 30%;
+  }
+}
+#signin .container form {
+  padding: 1rem;
+}
+#signin .container form .content {
+  display: grid;
+  gap: 1rem 2rem;
+  grid-template-columns: 1fr;
+  grid-template-areas: "email" "password" "remember" "button" "forgot";
+}
+#signin .container form .content #form-email {
+  grid-area: email;
+}
+#signin .container form .content #form-password {
+  grid-area: password;
+}
+#signin .container form .content #form-remember {
+  grid-area: remember;
+}
+#signin .container form .content #form-button {
+  grid-area: button;
+}
+#signin .container form .content #form-forgot-password {
+  grid-area: forgot;
+  text-align: center;
+  margin: 1rem 0 0 0;
+}
