@@ -79,4 +79,13 @@ public class AuthController(UserService userService, SignInManager<UserEntity> s
         return View(viewModel);
     }
     #endregion
+
+    #region Sign Out
+    public new async Task<IActionResult> SignOut()
+    {
+        await _signInManager.SignOutAsync();
+
+        return RedirectToAction("Index", "Home");
+    }
+    #endregion
 }
