@@ -1,9 +1,13 @@
-﻿namespace Infrastructure.Entities;
+﻿using Microsoft.AspNetCore.Identity;
 
-public class UserEntity
+namespace Infrastructure.Entities;
+
+public class UserEntity : IdentityUser
 {
+    [ProtectedPersonalData]
     public string FirstName { get; set; } = null!;
- 
+
+    [ProtectedPersonalData]
     public string LastName { get; set; } = null!;
 
     public string? Biography { get; set; }
