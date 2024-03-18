@@ -1,6 +1,8 @@
 using Infrastructure.Contexts;
 using Infrastructure.Entities;
+using Infrastructure.Factories;
 using Infrastructure.Repositories;
+using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace Presentation.WebApp
@@ -22,6 +24,11 @@ namespace Presentation.WebApp
 
             builder.Services.AddScoped<AddressRepository>();
             builder.Services.AddScoped<UserRepository>();
+            //builder.Services.AddScoped<AddressService>();
+            builder.Services.AddScoped<UserService>();
+
+            builder.Services.AddScoped<UserFactory>();
+            //builder.Services.AddScoped<AddressFactory>();
 
             var app = builder.Build();
             //app.UseExceptionHandler("/Home/Error");
