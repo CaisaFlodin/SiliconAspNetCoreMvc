@@ -1,5 +1,83 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
+
+
+<section id="newsletter">
+
+    <div class="container">
+
+        <div class="title">
+            <h1>Don't Want to Miss Anything?</h1>
+            <img src="~/images/home/arrow.svg" alt="arrow">
+        </div>
+
+    @*     <div class="content">
+            <form method="post" asp-controller="Home" asp-action="DontWant" novalidate>
+                <div class="form-content">
+                    <div class="column">
+                        <h6>Sign up for <br> Newsletters</h6>
+                    </div>
+                        <div class="column">
+                        <div class="input-group">
+                                <input asp-for="Form.NewsCheckbox1" />
+                                <label asp-for="Form.NewsCheckbox1">Daily Roundup</label>
+                            </div>
+                                <span asp-validation-for="Form.NewsCheckbox1"> </span>
+
+                            <div class="input-group">
+                                <input asp-for="Form.NewsCheckbox2" />
+                                <label asp-for="Form.NewsCheckbox2">Weekly Roundup</label>
+                            </div>
+                                <span asp-validation-for="Form.NewsCheckbox2"> </span>
+                        </div>
+                        
+                        <div class="column">
+                        <div class="input-group">
+                                <input asp-for="Form.NewsCheckbox3" />
+                                <label asp-for="Form.NewsCheckbox3">Monthly Roundup</label>
+                            </div>
+                                <span asp-validation-for="Form.NewsCheckbox3"> </span>
+                            <div class="input-group">
+                                <input asp-for="Form.NewsCheckbox4" />
+                                <label asp-for="Form.NewsCheckbox4">Special Offers</label>
+                            </div>
+                                <span asp-validation-for="Form.NewsCheckbox4"> </span>
+                        </div>
+
+                        <div class="column">
+                            <div class="input-group">
+                                <input asp-for="Form.NewsCheckbox5" />
+                                <label asp-for="Form.NewsCheckbox5">New Products</label>
+                            </div class="input-group">
+                                <span asp-validation-for="Form.NewsCheckbox5"> </span>
+                            <div class="input-group">
+                                <input asp-for="Form.NewsCheckbox6" />
+                                <label asp-for="Form.NewsCheckbox6">Events</label>
+                            </div>
+                                <span asp-validation-for="Form.NewsCheckbox6"> </span>
+
+
+                        </div>
+                </div>
+
+                <div class="subscribe">
+                    <div class="email">
+                        <div id="form-email" class="input-group">
+                            
+                            <span asp-validation-for="Form.Email"> </span>
+                            <input asp-for="Form.Email" />
+                        </div>
+                        <button id="form-submit" type="submit" class="btn-theme-s">@Model.Title </button>
+                    </div>
+                    
+                    <div class="terms">
+
+                        
+
+                        <p> <a href="#">*</a> Yes, I agree to the <a asp-controller="About" asp-action="Terms">Terms</a> and <a asp-controller="About" asp-action="Policy">privacy policy</a>.</p>
+
+                    </div>
+                </div>
+            </form>
+        </div> *@
+    </div>
+</section>
