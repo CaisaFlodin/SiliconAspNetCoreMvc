@@ -1,0 +1,54 @@
+﻿@model SignInViewModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<section id="signin">
+
+    <div class="container">
+        <form method="post" asp-controller="Auth" asp-action="SignIn" asp-route-ReturnUrl="@ViewData["ReturnUrl"]" novalidate>
+           @*  <form asp-controller="Auth" asp-action="SignIn" asp-route-ReturnUrl="@ViewData["ReturnUrl"]" method="post" novalidate> *@
+        @* <form method="post" asp-controller="Auth" asp-action="SignIn" novalidate> *@
+            @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"]?.ToString()))
+            {
+                <div class="message-validation-error">
+                    @Model.ErrorMessage
+                </div>
+            }
+
+            <h1>Welcome Back</h1>
+            <p>Don't have an account yet? <a asp-controller="Auth" asp-action="SignUp">Sign up here</a></p>
+
+
+            <div class="content">
+
+                <div id="form-email" class="input-group">
+                    <label asp-for=Form.Email></label>
+                    <span asp-validation-for="Form.Email"></span>
+                    <input asp-for="Form.Email" />
+                </div>
+
+                <div id="form-password" class="input-group">
+                    <label asp-for=Form.Password></label>
+                    <span asp-validation-for="Form.Password"></span>
+                    <input asp-for="Form.Password" />
+                </div>
+
+                <div id="form-remember" class="checkbox">
+                    <div class="checkbox-group">
+                        <div class="input-group">
+                            <input class="rememberMe" asp-for="Form.RememberMe" />
+                            <label asp-for="Form.RememberMe">Remember me</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-theme" id="form-submit" type="submit">@Model.Title</button>
+                <a id="form-forgot-password" asp-controller="Account" asp-action="Forgot">Forgot your password?</a>
+            </div>
+
+        </form>
+    </div>
+</section>
+@await Html.PartialAsync("_ValidationScriptPartial")

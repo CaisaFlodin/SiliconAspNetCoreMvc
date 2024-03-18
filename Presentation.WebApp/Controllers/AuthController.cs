@@ -12,6 +12,42 @@ public class AuthController(UserService userService, SignInManager<UserEntity> s
     private readonly SignInManager<UserEntity> _signInManager = signInManager;
     private readonly UserManager<UserEntity> _manager = userManager;
 
+    #region SignIn
+    [HttpGet]
+    [Route("/signin")]
+    public IActionResult SignIn(string returnUrl)
+    {
+        var viewModel = new SignInViewModel();
+        ViewData["Title"] = "Sign In";
+        if (_signInManager.IsSignedIn(User))
+        {
+            return RedirectToAction("Details", "Account");
+        }
+        ViewData["ReturnUrl"] = returnUrl ?? Url.Content("~/");
+        return View(viewModel);
+    }
+
+    [HttpPost]
+    [Route("/signin")]
+    public async Task<IActionResult> SignIn(SignInViewModel viewModel, string returnUrl)
+    {
+        ViewData["ReturnUrl"] = returnUrl ?? Url.Content("~/");
+        ViewData["Title"] = "Sign In";
+        if (ModelState.IsValid)
+        {
+            var result = await _userService.SignInUserAsync(viewModel.Form);
+            if (result.StatusCode == Infrastructure.Models.StatusCode.OK)
+            {
+                if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                {
+                    return Redirect(returnUrl);
+                }
+            }
+        }
+        viewModel.ErrorMessage = "Incorrect email or password";
+        return View(viewModel);
+    }
+    #endregion
 
     #region Signup
     [Route("/signup")]
