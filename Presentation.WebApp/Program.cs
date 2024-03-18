@@ -18,7 +18,9 @@ namespace Presentation.WebApp
 
             var app = builder.Build();
             //app.UseExceptionHandler("/Home/Error");
-            app.UseHsts(); app.UseHttpsRedirection();
+            app.UseHsts(); 
+            app.UseHttpsRedirection();
+            app.UseStatusCodePagesWithReExecute("/error", "?statusCode={0}");
             app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthorization();
