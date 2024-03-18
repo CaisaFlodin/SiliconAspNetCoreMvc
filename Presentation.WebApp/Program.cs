@@ -1,4 +1,5 @@
 using Infrastructure.Contexts;
+using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace Presentation.WebApp
@@ -11,6 +12,9 @@ namespace Presentation.WebApp
             builder.Services.AddControllersWithViews();
             builder.Services.AddRouting(x => x.LowercaseUrls = true);
             builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
+
+            builder.Services.AddScoped<AddressRepository>();
+            builder.Services.AddScoped<UserRepository>();
 
             var app = builder.Build();
             //app.UseExceptionHandler("/Home/Error");

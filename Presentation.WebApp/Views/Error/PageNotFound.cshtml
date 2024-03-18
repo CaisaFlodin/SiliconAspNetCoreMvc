@@ -1,0 +1,19 @@
+﻿
+@model PageNotFoundViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<section id="error">
+    <div class="container">
+        <div class="content">
+            <img src="@Model.ImageUrl" alt="@Model.AltText" />
+            <h1>@Model.Title</h1>
+            <p>@Model.Description</p>
+        </div>
+        <nav>
+            <a class="btn-theme-s" asp-action="Index" asp-controller="Home"><i class="@Model.LinkIcon"></i>@Model.LinkText</a>
+        </nav>
+    </div>
+
+</section>
