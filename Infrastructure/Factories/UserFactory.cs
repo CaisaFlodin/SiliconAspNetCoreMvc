@@ -1,5 +1,5 @@
 ﻿using Infrastructure.Entities;
-using Infrastructure.Models;
+using Infrastructure.Models.Auth;
 
 namespace Infrastructure.Factories;
 

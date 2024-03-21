@@ -1,6 +1,7 @@
 ﻿using Infrastructure.Entities;
 using Infrastructure.Factories;
 using Infrastructure.Models;
+using Infrastructure.Models.Auth;
 using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

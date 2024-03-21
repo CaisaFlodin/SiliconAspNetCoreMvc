@@ -1,4 +1,4 @@
-﻿using Infrastructure.Models;
+﻿using Infrastructure.Models.Auth;
 
 namespace Presentation.WebApp.ViewModels.Auth;
 

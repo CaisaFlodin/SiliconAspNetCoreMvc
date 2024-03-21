@@ -1,7 +1,7 @@
 ﻿using Infrastructure.Helpers;
 using System.ComponentModel.DataAnnotations;
 
-namespace Infrastructure.Models;
+namespace Infrastructure.Models.Auth;
 
 public class SignUpModel
 {

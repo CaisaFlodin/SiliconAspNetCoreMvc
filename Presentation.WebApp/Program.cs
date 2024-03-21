@@ -14,6 +14,7 @@ namespace Presentation.WebApp
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllersWithViews();
             builder.Services.AddRouting(x => x.LowercaseUrls = true);
+
             builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
             builder.Services.AddDefaultIdentity<UserEntity>(x =>
             {
@@ -22,17 +23,25 @@ namespace Presentation.WebApp
                 x.Password.RequiredLength = 8;
             }).AddEntityFrameworkStores<DataContext>();
 
+            builder.Services.ConfigureApplicationCookie(x =>
+            {
+                x.LoginPath = "/signin";
+                x.Cookie.HttpOnly = true;
+                x.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+                x.SlidingExpiration = true;
+            });
+
             builder.Services.AddScoped<AddressRepository>();
             builder.Services.AddScoped<UserRepository>();
-            //builder.Services.AddScoped<AddressService>();
+            builder.Services.AddScoped<AddressService>();
             builder.Services.AddScoped<UserService>();
 
             builder.Services.AddScoped<UserFactory>();
-            //builder.Services.AddScoped<AddressFactory>();
+            builder.Services.AddScoped<AddressFactory>();
 
             var app = builder.Build();
             //app.UseExceptionHandler("/Home/Error");
-            app.UseHsts(); 
+            app.UseHsts();
             app.UseHttpsRedirection();
             app.UseStatusCodePagesWithReExecute("/error", "?statusCode={0}");
             app.UseStaticFiles();
