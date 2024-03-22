@@ -574,6 +574,7 @@ header .container #menu {
   header .container #menu {
     display: block;
     margin-bottom: 0;
+    margin-left: 2rem;
   }
 }
 header .container #menu nav {
