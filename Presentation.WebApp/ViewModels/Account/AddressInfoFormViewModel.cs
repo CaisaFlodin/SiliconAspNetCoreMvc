@@ -9,7 +9,7 @@ public class AddressInfoFormViewModel
     [Required(ErrorMessage = "A valid address line is required")]
     public string AddressLine_1 { get; set; } = null!;
 
-    [Display(Name = "Address line 2 (optional)", Prompt = "Enter your second address line", Order = 1)]
+    [Display(Name = "Address line 2", Prompt = "Enter your second address line", Order = 1)]
     [DataType(DataType.Text)]
     public string? AddressLine_2 { get; set; }
 

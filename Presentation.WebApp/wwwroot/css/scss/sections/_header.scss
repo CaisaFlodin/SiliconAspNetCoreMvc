@@ -65,15 +65,21 @@ header {
             @include xl {
                 display: flex;
             }
+
+            img {
+                border-radius: 100%;
+                max-width: 3rem;
+                max-height:3rem;
+            }
         }
 
         .btn-mobilemenu {
             grid-area: mobile;
             display: block;
             margin-left: 20px;
-            font-size:27px;
-            border:none;
-            background-color:$white;
+            font-size: 27px;
+            border: none;
+            background-color: $white;
 
             @include xl {
                 display: none;
@@ -81,4 +87,3 @@ header {
         }
     }
 }
-

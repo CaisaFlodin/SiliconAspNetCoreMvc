@@ -490,7 +490,7 @@ form input {
   border: 0.063rem solid #33354D;
 }
 form input::placeholder {
-  opacity: 0.4;
+  color: #B4B7C9;
 }
 form input.input-validation-error {
   position: relative;
@@ -511,7 +511,7 @@ form textarea {
   resize: none;
 }
 form textarea::placeholder {
-  opacity: 0.4;
+  color: #B4B7C9;
 }
 form textarea.input-validation-error {
   border: 0.063rem solid #EF4444 !important;
@@ -608,6 +608,11 @@ header .container #account-buttons {
   header .container #account-buttons {
     display: flex;
   }
+}
+header .container #account-buttons img {
+  border-radius: 100%;
+  max-width: 3rem;
+  max-height: 3rem;
 }
 header .container .btn-mobilemenu {
   grid-area: mobile;
@@ -1494,17 +1499,23 @@ header .container .btn-mobilemenu {
   grid-template-columns: 2fr 5fr;
   gap: 150px;
   margin-bottom: 70px;
+  margin-top: 50px;
 }
 #account-details aside {
   border-right: 1px solid #E2E5F1;
-  padding-right: 20px;
+  padding-right: 15px;
 }
 #account-details aside .profile-info {
-  margin: 20px;
   text-align: center;
 }
-#account-details aside .profile-info h5 {
-  margin-top: 15px;
+#account-details aside .profile-info h2 {
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  color: #0B0F19;
+  font-size: 20px !important;
   margin-bottom: 0;
 }
 #account-details aside .profile-info p {
@@ -1515,31 +1526,56 @@ header .container .btn-mobilemenu {
   font-size: 16px !important;
 }
 #account-details aside nav {
-  margin-top: 50px;
+  margin-top: 1.8rem;
   text-align: left;
 }
 #account-details aside nav a {
-  margin: 10px 0;
   text-align: left;
+  margin-bottom: 0.5rem;
   justify-content: flex-start;
+  font-weight: 600;
+  font-size: 16px;
+}
+#account-details aside nav a .fa-regular, #account-details aside nav a .fa-solid {
+  color: #9397AD;
 }
 #account-details aside nav .btn-theme-s {
   text-align: left;
   justify-content: flex-start;
 }
+#account-details aside nav .btn-theme-s .fa-regular {
+  color: #FFFFFF;
+}
 #account-details .details {
-  margin-top: 50px;
   width: 100%;
 }
 #account-details .details .basic-info form {
   padding: 1rem;
 }
-#account-details .details .basic-info form h5 {
+#account-details .details .basic-info form h1 {
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  color: #0B0F19;
+  font-size: 32px !important;
+}
+#account-details .details .basic-info form h2 {
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  color: #0B0F19;
+  font-size: 20px !important;
   color: #6366F1;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
 }
 #account-details .details .basic-info form .content {
   display: grid;
-  gap: 1rem 2rem;
+  gap: 1.5rem 2rem;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "firstname lastname" "email phone" "bio bio" "buttons buttons";
 }
@@ -1559,27 +1595,34 @@ header .container .btn-mobilemenu {
   grid-area: bio;
 }
 #account-details .details .basic-info form .content #form-bio span {
-  color: #B4B7C9;
-  font-weight: 400;
+  color: #9397AD;
+  font-weight: 600;
 }
 #account-details .details .basic-info form .content .form-buttons {
   grid-area: buttons;
-  margin: 20px 0;
+  margin: 20px 0 10px 0;
   display: flex;
   gap: 20px;
 }
 #account-details .details .address-info {
-  margin-top: 30px;
+  margin-top: 1.5rem;
 }
 #account-details .details .address-info form {
   padding: 1rem;
 }
-#account-details .details .address-info form h5 {
+#account-details .details .address-info form h2 {
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  color: #0B0F19;
+  font-size: 20px !important;
   color: #6366F1;
 }
 #account-details .details .address-info form .content {
   display: grid;
-  gap: 1rem 2rem;
+  gap: 1.5rem 2rem;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "addressline_1 addressline_1" "addressline_2 addressline_2" "postalcode city" "buttons buttons";
 }
@@ -1590,8 +1633,8 @@ header .container .btn-mobilemenu {
   grid-area: addressline_2;
 }
 #account-details .details .address-info form .content #form-addressline-2 span {
-  color: #B4B7C9;
-  font-weight: 400;
+  color: #9397AD;
+  font-weight: 600;
 }
 #account-details .details .address-info form .content #form-postalcode {
   grid-area: postalcode;
@@ -1604,6 +1647,13 @@ header .container .btn-mobilemenu {
   margin: 20px 0;
   display: flex;
   gap: 20px;
+}
+#account-details label {
+  color: #0B0F19;
+}
+#account-details input, #account-details textarea {
+  color: #565973;
+  border-color: #D4D7E5;
 }
 
 footer {

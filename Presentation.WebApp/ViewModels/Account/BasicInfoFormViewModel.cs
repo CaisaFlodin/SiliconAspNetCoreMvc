@@ -29,7 +29,7 @@ public class BasicInfoFormViewModel
     [DataType(DataType.PhoneNumber)]
     public string? Phone { get; set; }
 
-    [Display(Name = "Bio (optional)", Prompt = "Add a short bio...", Order = 4)]
+    [Display(Name = "Bio", Prompt = "Add a short bio...", Order = 4)]
     [DataType(DataType.MultilineText)]
     public string? Biography { get; set; }
 }
