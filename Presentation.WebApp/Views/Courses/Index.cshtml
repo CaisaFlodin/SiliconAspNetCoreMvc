@@ -1,9 +1,13 @@
-﻿
+﻿@using System.Globalization
+
 @* @model CoursesIndexViewModel
+  
 
 
 @await Html.PartialAsync("~/Views/Shared/Courses/_CoursesPartial.cshtml", Model.Courses)
 @await Html.PartialAsync("~/Views/Shared/Courses/_SkillsPartial.cshtml") *@
+
+@model IEnumerable<CourseEntity>
 
 <section id="courses">
     <div class="container">
@@ -38,7 +42,41 @@
         </div>
 
         <div class="cards">
-            <div class="card">
+            @foreach(var course in Model)
+            {
+                <div class="card">
+                    <img src="~/images/courses/@course.ImageName" class="course-img" />
+                    <div class="card-icon-wrapper">
+                        @if (course.IsBestseller)
+                        {
+                            <img src="~/images/courses/badge.svg" class="course-badge" />
+                        }
+                       
+                        <button class="bookmark"><i class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="content">
+                        <h2>@course.Title</h2>
+                        <h3>By @course.Author</h3>
+                        @if (course.DiscountPrice != 0)
+                        {
+                            <span class="discount">@course.DiscountPrice.ToString("C", new CultureInfo("en-US"))</span>
+                            <span class="old-price">@course.Price.ToString("C", new CultureInfo("en-US"))</span>
+                        }
+                        else 
+                        {
+                        <span>@course.Price.ToString("C", new CultureInfo("en-US"))</span>
+                        }
+                        
+                        <div class="divider">
+                            <p><i class="fa-sharp fa-regular fa-clock"></i>@course.Duration hours</p>
+                            <p><i class="fa-regular fa-thumbs-up"></i>@course.LikesInPercent% (@(double.Parse(course.LikesInNumbers!) / 1000)K)</p>
+                            
+                           @*  (@String.Format("{0:c}", course.LikesInNumbers)K) *@
+                        </div>
+                    </div>
+                </div>
+            }
+            @* <div class="card">
                 <img src="~/images/courses/fullstack.svg" class="course-img" />
                 <div class="card-icon-wrapper">
                     <img src="~/images/courses/badge.svg" class="course-badge" />
@@ -177,7 +215,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+            </div>*@
         <nav class="pagination-wrapper">
             <ul class="pagination">
                 <li>
@@ -200,7 +238,7 @@
                     </a>
                 </li>
             </ul>
-        </nav>
-
-    </div>
+            </nav>
+</div>
+    </div> 
 </section>

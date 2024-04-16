@@ -8,9 +8,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Services;
 
-public class UserService(UserRepository repository, UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager)
+public class UserService(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager)
 {
-    private readonly UserRepository _repository = repository;
     private readonly UserManager<UserEntity> _userManager = userManager;
     private readonly SignInManager<UserEntity> _signInManager = signInManager;
 

@@ -20,7 +20,7 @@ public class SignUpModel
     [DataType(DataType.EmailAddress)]
     [Display(Name = "Email address", Prompt = "Enter your email address", Order = 2)]
     [Required(ErrorMessage = "Email address field is required")]
-    [RegularExpression("^[^@\\s]+@[^@\\s]+\\.[^@\\s]{2,}$", ErrorMessage = "Please enter your Email address in format: yourname@example.com")]
+    [RegularExpression("^[^@\\s]+@[^@\\s]+\\.[^@\\s]{2,}$", ErrorMessage = "Please enter a valid Email address")]
     public string Email { get; set; } = null!;
 
     [DataType(DataType.Password)]
