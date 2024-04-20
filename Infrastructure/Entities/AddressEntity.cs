@@ -12,13 +12,11 @@ public class AddressEntity
 
     public string? AddressLine_2 { get; set; }
 
-    [Column(TypeName = "char")]
     public string PostalCode { get; set; } = null!;
 
     [StringLength(50)]
     public string City { get; set; } = null!;
 
-    //public ICollection<UserEntity> Users { get; set; } = [];
     public string UserId { get; set; } = null!;
     public UserEntity User { get; set; } = null!;
 }

@@ -16,30 +16,7 @@ public class UserEntity : IdentityUser
 
     public DateTime? Modified { get; set; }
 
-    //public int? AddressId { get; set; }
-
-    //public AddressEntity? Address { get; set; }
+    public string? ImageUrl { get; set; } = "profile-image.svg";
 
     public ICollection<AddressEntity> Addresses { get; set; } = [];
-
-
-    //[ProtectedPersonalData]
-    //public string FirstName { get; set; } = null!;
-
-    //[ProtectedPersonalData]
-    //public string LastName { get; set; } = null!;
-
-    //public string? Biography { get; set; }
-
-    //public string? ImageUrl { get; set; }
-
-    //public DateTime? Created { get; set; }
-
-    //public DateTime? Modified { get; set; }
-
-    //public int? AddressId { get; set; }
-
-    //public ICollection<AddressEntity> Addresses { get; set; } = [];
-
-    //public bool IsExternalAccount { get; set; }
 }

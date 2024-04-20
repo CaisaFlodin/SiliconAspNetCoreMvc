@@ -1,20 +1,16 @@
 ﻿@inject SignInManager<UserEntity> _signInManager
+@inject UserManager<UserEntity> UserManager
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
 
 <header>
     <div class="container">
         <a class="logo" asp-controller="Home" asp-action="Index"><img src="~/images/logo.svg" alt="Silicon logotype"></a>
-
-     @*    <div id="menu" class="hide">
-            <nav>
-                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="overview">Overview</a>
-                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
-                <a class="menu-link" asp-controller="Contact" asp-action="Index">Contact</a>
-            </nav>
-        </div> *@
         <div id="menu" class="hide">
             <nav>
                 <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="overview">Overview</a>
-                @if (_signInManager.IsSignedIn(User))
+                @if (_signInManager.IsSignedIn(User)) 
                 {
                     <a class="menu-link" asp-controller="Courses" asp-action="Index">Courses</a>
                 }
@@ -36,16 +32,11 @@
             <label>Dark</label>
         </div>
 
-      @*   <div id="account-buttons">
-            <a class="btn-gray" asp-controller="Auth" asp-action="SignIn"><i class="fa-solid fa-right-to-bracket"></i><span>Sign in</span></a>
-            <a class="btn-theme" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i><span>Sign up</span></a>
-        </div> *@
-
         <div id="account-buttons">
-            @if (_signInManager.IsSignedIn(User))
+           @if (_signInManager.IsSignedIn(User))
             {
                 <a asp-controller="Account" asp-action="Details">
-                    <img src="~/images/account/profile-image.svg" alt="Profile image"/>
+                    <img src="~/images/account/@user!.ImageUrl" alt="Profile image" />
                 </a>
             }
             else

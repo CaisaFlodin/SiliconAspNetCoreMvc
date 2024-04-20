@@ -1507,7 +1507,25 @@ header .container .btn-mobilemenu {
   padding-right: 15px;
 }
 #account-details aside .profile-info {
+  margin: 20px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#account-details aside .profile-info .profile-img {
+  display: flex;
+  position: relative;
+}
+#account-details aside .profile-info .profile-img .btn-circle {
+  position: absolute;
+  right: 4px;
+  bottom: 0;
+}
+#account-details aside .profile-info .profile-img img {
+  border-radius: 100%;
+  max-width: 7rem;
+  max-height: 7rem;
 }
 #account-details aside .profile-info h2 {
   line-height: 160%;

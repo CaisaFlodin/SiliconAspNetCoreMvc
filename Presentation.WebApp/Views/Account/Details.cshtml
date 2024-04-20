@@ -12,7 +12,7 @@
                 @ViewData["ErrorMessage"]
             </div>
         }
-        <aside>
+       @*  <aside>
             <div class="profile-info">
                 <img src="~/images/account/@Model.ProfileInfo?.ProfileImage" alt="@($"{Model.ProfileInfo?.FirstName} {Model.ProfileInfo?.LastName}")" />
                 <h2>@($"{Model.ProfileInfo?.FirstName} {Model.ProfileInfo?.LastName}")</h2>
@@ -25,7 +25,10 @@
                 <a class="btn-transparent" asp-controller="Courses" asp-action="SavedCourses"><i class="fa-regular fa-bookmark"></i>Saved Courses</a>
                 <a class="btn-transparent" asp-controller="Auth" asp-action="SignOut"><i class="fa-solid fa-right-to-bracket"></i>Sign Out</a>
             </nav>
-        </aside>
+        </aside> *@
+        <span>
+            <partial name="~/Views/Account/_AccountProfile.cshtml"/>
+        </span>
 
         <div class="details">
             <section class="basic-info">

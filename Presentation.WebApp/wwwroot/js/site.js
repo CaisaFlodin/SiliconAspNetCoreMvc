@@ -19,3 +19,23 @@ const checkScreenSize = () => {
 
 window.addEventListener('resize', checkScreenSize);
 checkScreenSize();
+
+document.addEventListener('DOMContentLoaded', function () {
+    handleUploadProfileImage();
+})
+
+function handleUploadProfileImage() {
+    try {
+        let fileUploader = document.querySelector('#fileUploader')
+        if (fileUploader != undefined) {
+            fileUploader.addEventListener('change', function () {
+                if (this.files.length > 0) {
+                    this.form.submit()
+                }
+            })
+        }
+    }
+    catch {
+
+    }
+}
