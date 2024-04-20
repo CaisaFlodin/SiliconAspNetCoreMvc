@@ -1,26 +1,17 @@
-﻿@model ShowcaseModel
-
-<section id="@Model.Id" class="showcase">
+﻿<section id="showcase">
     <div class="container">
         <div class="content">
-            <h1>@Model.Title</h1>
-            <p>
-                @Model.Text
-            </p>
-            <a class="btn-theme-s" asp-controller="@Model.Link.ControllerName" asp-action="@Model.Link.ActionName">@Model.Link.Text</a>
-            <h6>@Model.BrandsText</h6>
+            <h1>Task Management Assistant You're Gonna Love</h1>
+            <p>We offer you a new generation of task management system. Plan, manage & track all your tasks in one flexible tool.</p>
+            <a class="btn-theme-s" asp-controller="Auth" asp-action="SignUp">Get started for free</a>
+            <h6>Largest companies use our tool to work efficiently</h6>
             <div class="brands">
-                @if (Model.Brands != null)
-                {
-                    foreach (var brand in Model.Brands)
-                    {
-                        <img src="@brand.ImageUrl" alt="@brand.AltText">
-                    }
-                }
+                <img src="/images/brands/brand_1.svg" alt="Brand Logo">
+                <img src="/images/brands/brand_2.svg" alt="Brand Logo">
+                <img src="/images/brands/brand_3.svg" alt="Brand Logo">
+                <img src="/images/brands/brand_4.svg" alt="Brand Logo">
             </div>
-
         </div>
+        <img class="background-image" src="images/home/showcase-taskmaster.svg" alt="Showcase image">
     </div>
-    <img class="background-image" src="@Model.ShowcaseImage.ImageUrl" alt="@Model.ShowcaseImage.AltText">
-    
 </section>
