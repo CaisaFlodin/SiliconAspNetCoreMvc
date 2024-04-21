@@ -1,12 +1,24 @@
-﻿
+﻿@inject SignInManager<UserEntity> _signInManager
+@inject UserManager<UserEntity> UserManager
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
+
 <header>
     <div class="container">
-        <a class="logo" asp-controller="Home" asp-action="Index"><img src="~/images/silicon-logo-light-theme.svg" alt="Silicon logotype"></a>
-
+        <a class="logo" asp-controller="Home" asp-action="Index"><img src="~/images/logo.svg" alt="Silicon logotype"></a>
         <div id="menu" class="hide">
             <nav>
                 <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="overview">Overview</a>
-                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
+                @if (_signInManager.IsSignedIn(User)) 
+                {
+                    <a class="menu-link" asp-controller="Courses" asp-action="Index">Courses</a>
+                }
+                else
+                {
+                    <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
+                }
+
                 <a class="menu-link" asp-controller="Contact" asp-action="Index">Contact</a>
             </nav>
         </div>
@@ -21,8 +33,24 @@
         </div>
 
         <div id="account-buttons">
-            <a class="btn-gray" asp-controller="Auth" asp-action="SignIn"><i class="fa-solid fa-right-to-bracket"></i><span>Sign in</span></a>
-            <a class="btn-theme" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i><span>Sign up</span></a>
+           @if (_signInManager.IsSignedIn(User))
+            {
+                <a asp-controller="Account" asp-action="Details">
+                    <img src="~/images/account/@user!.ImageUrl" alt="Profile image" />
+                </a>
+            }
+            else
+            {
+                <a class="btn-gray" asp-controller="Auth" asp-action="SignIn">
+                    <i class="fa-regular fa-right-to-bracket"></i>
+                    <span>Sign In</span>
+                </a>
+                <a class="btn-theme" asp-controller="Auth" asp-action="SignUp">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Sign Up</span>
+                </a>
+            }
+
         </div>
 
         <button onclick="toggleMenu()" class="btn-mobilemenu">

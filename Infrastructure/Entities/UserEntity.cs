@@ -12,15 +12,11 @@ public class UserEntity : IdentityUser
 
     public string? Biography { get; set; }
 
-    public string? ImageUrl { get; set; }
-
     public DateTime? Created { get; set; }
 
     public DateTime? Modified { get; set; }
 
-    public int? AddressId { get; set; }
+    public string? ImageUrl { get; set; } = "profile-image.svg";
 
-    public AddressEntity? Address { get; set; }
-
-    public bool IsExternalAccount { get; set; }
+    public ICollection<AddressEntity> Addresses { get; set; } = [];
 }

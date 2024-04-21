@@ -1,5 +1,4 @@
-﻿
-
+﻿@model HomeIndexViewModel
 
 <section id="newsletter">
 
@@ -10,74 +9,80 @@
             <img src="~/images/home/arrow.svg" alt="arrow">
         </div>
 
-    @*     <div class="content">
-            <form method="post" asp-controller="Home" asp-action="DontWant" novalidate>
-                <div class="form-content">
-                    <div class="column">
-                        <h6>Sign up for <br> Newsletters</h6>
+        <form method="post" asp-controller="Home" asp-action="Index" method="post" novalidate>
+
+            <div class="form-content">
+                <p id="sign-up">Sign up for<br>Newsletters</p>
+
+                <div class="checkbox-group">
+
+                    <div class="checkbox">
+                        <input type="checkbox" />
+                        <label asp-for="@Model.Form.CheckboxDaily">Daily Newsletter</label>
                     </div>
-                        <div class="column">
-                        <div class="input-group">
-                                <input asp-for="Form.NewsCheckbox1" />
-                                <label asp-for="Form.NewsCheckbox1">Daily Roundup</label>
-                            </div>
-                                <span asp-validation-for="Form.NewsCheckbox1"> </span>
 
-                            <div class="input-group">
-                                <input asp-for="Form.NewsCheckbox2" />
-                                <label asp-for="Form.NewsCheckbox2">Weekly Roundup</label>
-                            </div>
-                                <span asp-validation-for="Form.NewsCheckbox2"> </span>
-                        </div>
-                        
-                        <div class="column">
-                        <div class="input-group">
-                                <input asp-for="Form.NewsCheckbox3" />
-                                <label asp-for="Form.NewsCheckbox3">Monthly Roundup</label>
-                            </div>
-                                <span asp-validation-for="Form.NewsCheckbox3"> </span>
-                            <div class="input-group">
-                                <input asp-for="Form.NewsCheckbox4" />
-                                <label asp-for="Form.NewsCheckbox4">Special Offers</label>
-                            </div>
-                                <span asp-validation-for="Form.NewsCheckbox4"> </span>
-                        </div>
+                    <div class="checkbox">
+                        <input type="checkbox" />
+                        <label asp-for="@Model.Form.CheckboxAdvertising">Advertising Updates</label>
+                    </div>
 
-                        <div class="column">
-                            <div class="input-group">
-                                <input asp-for="Form.NewsCheckbox5" />
-                                <label asp-for="Form.NewsCheckbox5">New Products</label>
-                            </div class="input-group">
-                                <span asp-validation-for="Form.NewsCheckbox5"> </span>
-                            <div class="input-group">
-                                <input asp-for="Form.NewsCheckbox6" />
-                                <label asp-for="Form.NewsCheckbox6">Events</label>
-                            </div>
-                                <span asp-validation-for="Form.NewsCheckbox6"> </span>
+                    <div class="checkbox">
+                        <input type="checkbox" />
+                        <label asp-for="@Model.Form.CheckboxWeek">Week in Review</label>
+                    </div>
 
+                    <div class="checkbox">
+                        <input type="checkbox" />
+                        <label asp-for="@Model.Form.CheckboxEvent">Event Updates</label>
+                    </div>
 
-                        </div>
+                    <div class="checkbox">
+                        <input type="checkbox" />
+                        <label asp-for="@Model.Form.CheckboxStartups">Startups Weekly</label>
+                    </div>
+
+                    <div class="checkbox">
+                        <input type="checkbox" />
+                        <label asp-for="@Model.Form.CheckboxPodcasts">Podcasts</label>
+                    </div>
+
                 </div>
+            </div>
 
-                <div class="subscribe">
-                    <div class="email">
-                        <div id="form-email" class="input-group">
-                            
-                            <span asp-validation-for="Form.Email"> </span>
-                            <input asp-for="Form.Email" />
-                        </div>
-                        <button id="form-submit" type="submit" class="btn-theme-s">@Model.Title </button>
-                    </div>
-                    
-                    <div class="terms">
+            <div class="email-group">
 
-                        
+                <label asp-for="@Model.Form.Email"><img src="" /></label>
+                <span asp-validation-for="@Model.Form.Email"></span>
+                <input asp-for="@Model.Form.Email" placeholder="Your Email" />
 
-                        <p> <a href="#">*</a> Yes, I agree to the <a asp-controller="About" asp-action="Terms">Terms</a> and <a asp-controller="About" asp-action="Policy">privacy policy</a>.</p>
+                <button class="btn-theme" type="submit">Subscribe*</button>
 
-                    </div>
-                </div>
-            </form>
-        </div> *@
+            </div>
+            @if (ViewData["Status"]?.ToString() == "Success")
+            {
+                <span class="alert alert-success">You have been subscribed</span>
+            }
+            else if (ViewData["Status"]?.ToString() == "AlreadyExists")
+            {
+                <span class="alert alert-warning">You are already subscribed</span>
+            }
+            else if (ViewData["Status"]?.ToString() == "Invalid")
+            {
+                <span class="alert alert-danger">You must enter an valid email address</span>
+            }
+            else if (ViewData["Status"]?.ToString() == "ConnectionFailed")
+            {
+                <span class="alert alert-danger">Unable to contact the server. Please try again later.</span>
+            }
+            else
+            {
+                <span class="terms">
+                    <p> <a href="#">*</a> Yes, I agree to the <a asp-controller="About" asp-action="Terms">terms</a> and <a asp-controller="About" asp-action="Policy">privacy policy</a>.</p>
+
+                </span>
+            }
+           
+        </form>
     </div>
 </section>
+@await Html.PartialAsync("_ValidationScriptPartial")

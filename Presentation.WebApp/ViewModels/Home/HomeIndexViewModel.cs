@@ -1,4 +1,5 @@
-﻿using Presentation.WebApp.Models.Sections;
+﻿using Infrastructure.Models.Home;
+using Presentation.WebApp.Models.Sections;
 
 namespace Presentation.WebApp.ViewModels.Home
 {
@@ -21,5 +22,7 @@ namespace Presentation.WebApp.ViewModels.Home
                 new() { ImageUrl = "/images/brands/brand_4.svg", AltText = "Brand Name 4" },
             ]
         };
+
+        public SubscribeModel Form { get; set; } = new SubscribeModel();
     }
 }
